@@ -23,10 +23,10 @@ namespace FluentMigrator.VersionTableInfo
     public interface IVersionTableMetaData
     {
         string SchemaName { get; }
-		string TableName { get; }
-		string ColumnName { get; }
+        string TableName { get; }
+        string ColumnName { get; }
         string GroupName { get; }
 
         string DefaultGroupName { get; }
-	}
+    }
 }

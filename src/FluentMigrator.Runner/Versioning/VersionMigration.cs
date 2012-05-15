@@ -52,20 +52,20 @@ namespace FluentMigrator.Runner.Versioning
         private IVersionTableMetaData _versionTableMetaData;
 
         public VersionGroupMigration(IVersionTableMetaData versionTableMetaData)
-		{
-			_versionTableMetaData = versionTableMetaData;
-		}
+        {
+            _versionTableMetaData = versionTableMetaData;
+        }
 
-		public override void Up()
-		{
+        public override void Up()
+        {
             Alter.Table(_versionTableMetaData.TableName)
                 .AddColumn(_versionTableMetaData.GroupName).AsString().NotNullable().WithDefaultValue(_versionTableMetaData.DefaultGroupName);
-		}
+        }
 
-		public override void Down()
-		{
+        public override void Down()
+        {
             Delete.Column(_versionTableMetaData.GroupName).FromTable(_versionTableMetaData.TableName);
-		}
+        }
     }
 
     public class VersionSchemaMigration : Migration
